@@ -94,7 +94,6 @@ studio["name"] = "Warner Bros."
 studio.save
 
 warner = Studio.find_by({"name" => "Warner Bros."})
-puts warner.inspect
 
 movie = Movie.new
 movie["title"] = "Batman Begins"
@@ -275,6 +274,16 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+movies = Movie.all
+
+for movie in movies
+    title = movie["title"]
+    year = movie["year_released"]
+    rating = movie["rated"]
+    studio = Studio.find_by("id" => movie["studio_id"])["name"]
+    printout = "#{title}".ljust(30) + "#{year}".ljust(6) + "#{rating}".ljust(10) + "#{studio}"
+    puts printout
+end
 
 # Prints a header for the cast output
 puts ""
@@ -283,4 +292,13 @@ puts "========"
 puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+# TODO! 
+
+top_cast = Role.all
+
+for role in top_cast
+    movie = Movie.find_by("id" => role["movie_id"])["title"]
+    actor = Actor.find_by("id" => role["actor_id"])["name"]
+    character_name = role["character_name"]
+    puts "#{movie}".ljust(30) + "#{actor}".ljust(22) + "#{character_name}"
+end    
