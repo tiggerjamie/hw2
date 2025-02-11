@@ -86,12 +86,187 @@ Role.destroy_all
 # TODO!
 #done in migrate/migration files
 
-
-
-
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+studio = Studio.new
+studio["name"] = "Warner Bros."
+studio.save
+
+warner = Studio.find_by({"name" => "Warner Bros."})
+puts warner.inspect
+
+movie = Movie.new
+movie["title"] = "Batman Begins"
+movie["year_released"] = 2005
+movie["rated"] = "PG-13"
+movie["studio_id"] = warner["id"]
+movie.save
+bb = Movie.find_by({"title" => "Batman Begins"})
+
+movie = Movie.new
+movie["title"] = "The Dark Knight"
+movie["year_released"] = 2008
+movie["rated"] = "PG-13"
+movie["studio_id"] = warner["id"]
+movie.save
+dk = Movie.find_by({"title" => "The Dark Knight"})
+
+movie = Movie.new
+movie["title"] = "The Dark Knight Rises"
+movie["year_released"] = 2012
+movie["rated"] = "PG-13"
+movie["studio_id"] = warner["id"]
+movie.save
+dkr = Movie.find_by({"title" => "The Dark Knight Rises"})
+
+actor = Actor.new
+actor["name"] = "Christian Bale"
+actor.save
+cb = Actor.find_by({"name" => "Christian Bale"})
+
+actor = Actor.new
+actor["name"] = "Michael Caine"
+actor.save
+mc = Actor.find_by({"name" => "Michael Caine"})
+
+actor = Actor.new
+actor["name"] = "Liam Neeson"
+actor.save
+ln = Actor.find_by({"name" => "Liam Neeson"})
+
+actor = Actor.new
+actor["name"] = "Katie Holmes"
+actor.save
+kh = Actor.find_by({"name" => "Katie Holmes"})
+
+actor = Actor.new
+actor["name"] = "Gary Oldman"
+actor.save
+gol = Actor.find_by({"name" => "Gary Oldman"})
+
+actor = Actor.new
+actor["name"] = "Heath Ledger"
+actor.save
+hl = Actor.find_by({"name" => "Heath Ledger"})
+
+actor = Actor.new
+actor["name"] = "Aaron Eckhart"
+actor.save
+ae = Actor.find_by({"name" => "Aaron Eckhart"})
+
+actor = Actor.new
+actor["name"] = "Maggie Gyllenhaal"
+actor.save
+mg = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+
+actor = Actor.new
+actor["name"] = "Tom Hardy"
+actor.save
+th = Actor.find_by({"name" => "Tom Hardy"})
+
+actor = Actor.new
+actor["name"] = "Joseph Gordon-Levitt"
+actor.save
+jgl = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+
+actor = Actor.new
+actor["name"] = "Anne Hathaway"
+actor.save
+ah = Actor.find_by({"name" => "Anne Hathaway"})
+
+role = Role.new
+role["movie_id"] = bb["id"]
+role["actor_id"] = cb["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = bb["id"]
+role["actor_id"] = mc["id"]
+role["character_name"] = "Alfred"
+role.save
+
+role = Role.new
+role["movie_id"] = bb["id"]
+role["actor_id"] = ln["id"]
+role["character_name"] = "Ra's Al Ghul"
+role.save
+
+role = Role.new
+role["movie_id"] = bb["id"]
+role["actor_id"] = kh["id"]
+role["character_name"] = "Rachel Dawes"
+role.save
+
+role = Role.new
+role["movie_id"] = bb["id"]
+role["actor_id"] = gol["id"]
+role["character_name"] = "Commissioner Gordon"
+role.save
+
+role = Role.new
+role["movie_id"] = dk["id"]
+role["actor_id"] = cb["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = dk["id"]
+role["actor_id"] = hl["id"]
+role["character_name"] = "Joker"
+role.save
+
+role = Role.new
+role["movie_id"] = dk["id"]
+role["actor_id"] = ae["id"]
+role["character_name"] = "Harvey Dent"
+role.save
+
+role = Role.new
+role["movie_id"] = dk["id"]
+role["actor_id"] = mc["id"]
+role["character_name"] = "Alfred"
+role.save
+
+role = Role.new
+role["movie_id"] = dk["id"]
+role["actor_id"] = kh["id"]
+role["character_name"] = "Rachel Dawes"
+role.save
+
+role = Role.new
+role["movie_id"] = dkr["id"]
+role["actor_id"] = cb["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = dkr["id"]
+role["actor_id"] = gol["id"]
+role["character_name"] = "Commissioner Gordon"
+role.save
+
+role = Role.new
+role["movie_id"] = dkr["id"]
+role["actor_id"] = th["id"]
+role["character_name"] = "Bane"
+role.save
+
+role = Role.new
+role["movie_id"] = dkr["id"]
+role["actor_id"] = jgl["id"]
+role["character_name"] = "John Blake"
+role.save
+
+role = Role.new
+role["movie_id"] = dkr["id"]
+role["actor_id"] = ah["id"]
+role["character_name"] = "Selina Kyle"
+role.save
+
+
+
 
 # Prints a header for the movies output
 puts "Movies"
